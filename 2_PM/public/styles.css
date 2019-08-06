@@ -1,3 +1,19 @@
-body {
-  background-color: #dfdfdf;
+#rolling {
+  color: aqua;
+}
+#intro {
+  font-family: 'Courier New', Courier, monospace;
+}
+#loading {
+  background-image: url("loader.gif");
+  background-color: navy;
+  color: aqua;
+}
+#break {
+  font-size: 32px;
+  justify-content: space-between;
+	width: 1500px;
+  column-count: 5;
+  -moz-column-count: 5;
+  -webkit-column-count: 5;
 }

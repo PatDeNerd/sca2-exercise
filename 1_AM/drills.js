@@ -4,6 +4,11 @@ const assert = require("assert")
 
 const reverse = function(str) {
   // TODO - write a function which reverses the string
+  reverse = ""
+  for(var i = length(str) - 1; i > -1; i--) {
+    reverse += str[i]
+  }
+  return reverse
 }
 
 const factorial = function(num) {
