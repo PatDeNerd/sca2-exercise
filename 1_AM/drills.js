@@ -1,8 +1,8 @@
 const assert = require("assert");
-
+const converter = require("number-to-words");
 // Feel free to look things up online!
 
-const reverse = function(str) {
+const reverse = str => {
   // TODO - write a function which reverses the string
   let rev = "";
   for(let i = str.length - 1; i > -1; i--) {
@@ -11,7 +11,7 @@ const reverse = function(str) {
   return rev;
 }
 
-const factorial = function(num) {
+const factorial = num => {
   // TODO - write a function which returns the factorial of a positive integer
   // For example, 5! = 5 * 4 * 3 * 2 * 1 = 120
   let fact = 1;
@@ -21,24 +21,35 @@ const factorial = function(num) {
   return fact;
 }
 
-const announceDate = function() {
+const announceDate = () => {
   // TODO - write a function which returns the current date in the following format:
   // "Today's date is January 7th, 2016. It is eleven thirty-seven in the morning."
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const d = new Date();
-  const month = d.getMonth() + 1;
-  const day = d.getDay();
+  const month = months[d.getMonth()];
+  const day = converter.toOrdinal(d.getDate());
   const year = d.getFullYear();
   const hour = d.getHours();
-  const minute = d.getMinutes();
+  const minute = converter.toWords(d.getMinutes());
+  
   if(hour < 12) {
-    return "Today's date is " + month + "/" + day + "/" + year + ". It is " + hour + ":" + minute + " in the morning.";
+    return `Today's date is ${month} ${day}, ${year}. It is ${converter.toWords(hour)} ${minute} in the morning.`;
+  }
+  else if(hour === 12) {
+    return `Today's date is ${month} ${day}, ${year}. It is ${converter.toWords(hour)} ${minute} in the afternoon.`;
+  }
+  else if(hour < 18) {
+    return `Today's date is ${month} ${day}, ${year}. It is ${converter.toWords(hour - 12)} ${minute} in the afternoon.`;
+  }
+  else if(hour < 20) {
+    return `Today's date is ${month} ${day}, ${year}. It is ${converter.toWords(hour - 12)} ${minute} in the evening.`;
   }
   else {
-    return "Today's date is " + month + "/" + day + "/" + year + ". It is " + (hour - 12) + ":" + minute + " PM.";
+    return `Today's date is ${month} ${day}, ${year}. It is ${converter.toWords(hour - 12)} ${minute} in the night.`;
   }
 }
 
-const shiftRight = function(str, num) {
+const shiftRight = (str, num) => {
   // TODO - write a function which shifts a string `num` characters to the right
   // Example = shiftThree("Hello") === "lloHe"
   let string = "";
@@ -50,12 +61,12 @@ const shiftRight = function(str, num) {
   return string;
 }
 
-const tokenize = function(str) {
+const tokenize = str => {
   // TODO - write a function which converts a multi-word string into an array of words
   return str.split(" ");
 }
 
-const uniqueOnes = function(ary) {
+const uniqueOnes = ary => {
   // TODO - write a funcion which returns the inputted array without duplicate elements
   for(let i = 0; i < ary.length; i++) 
   {
@@ -73,7 +84,7 @@ const uniqueOnes = function(ary) {
 
 }
 
-const zip = function(arr1, arr2) {
+const zip = (arr1, arr2) => {
   // TODO - write a function which combines two arrays into an array of 2-element arrays and returns -1
   // if the two arrays are of unequal length
   // Example: zip([1, 2, 3], [5, 3, 1]) === [[1, 5], [2, 3], [3, 1]]
@@ -92,7 +103,7 @@ const zip = function(arr1, arr2) {
   }
 }
 
-const unzip = function(arr) {
+const unzip = arr => {
   // TODO - Write a function which does the opposite of `zip()`
   arr1 = [];
   arr2 = [];
@@ -117,4 +128,5 @@ console.log(shiftRight("Hello", 3));
 console.log(uniqueOnes([3,5,5,6,6,6,6,6,6,7]));
 assert(zip([1], [1,2]) === -1);
 console.log(zip([1,2,3], [2,4,6]));
-console.log(unzip( [ [1,2], [2,4], [3,6] ] ))
+console.log(unzip( [ [1,2], [2,4], [3,6] ] ));
+console.log(announceDate());
