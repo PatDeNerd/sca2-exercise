@@ -1,10 +1,11 @@
 // Complete the implementation of the following functions so that
 // the output is [0, 3, 6, 9, 12]
 
-const arr = [0, 1, 2, 3, 4]
+const arr = [0, 1, 2, 3, 4];
 
 const triple = el => {
   // TODO: Triple the value inputted
+  return el*3;
 }
 
 // Challenge: Implement the map method below!
@@ -15,4 +16,4 @@ const triple = el => {
 //   // to array and return the new array
 // }
 
-console.log(arr.map(triple))
+console.log(arr.map(item => triple(item)));

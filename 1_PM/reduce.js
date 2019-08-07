@@ -5,7 +5,9 @@
 const arr = [0, 1, 2, 3, 4]
 
 // Note: acc stands for accumulator, cur stands for current
-const sum = (acc, cur) => {}
+const sum = (acc, cur) => {
+    return acc + cur;
+}
 
 // // Challenge: Implement the reduce method below!
 // Array.prototype.reduce = function(fun, initValue) {
@@ -14,6 +16,14 @@ const sum = (acc, cur) => {}
 //   // TODO: Using the passed in fun, apply to all elements
 //   // to array and return a singular value
 // }
+
+const reduce = (fun, initValue) => {
+    const arr = this;
+    for(let i = 0; i < arr.length; i++) {
+        initValue = fun(initValue, arr[i]);
+    }
+    return initValue;
+}
 
 const total = arr.reduce(sum, 0)
 console.log(total)
