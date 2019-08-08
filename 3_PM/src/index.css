@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#head {
+  justify-content: center;
+  font-family: 'Agency FB', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 36px;
+  color: palegreen;
+}
+
+#bod {
+  background-image: url("riddler.png");
+  background-color: #274461;
+}

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 150vw;
 }
 
 div {
@@ -12,4 +12,39 @@ div {
 form {
   display: flex;
   flex-direction: column;
+}
+
+label {
+  color: #b415ff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+#button {
+  background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#face {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly
+}
+
+#streak {
+  color: skyblue;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+#msg {
+  color: #d173ff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 250;
 }
